@@ -1,0 +1,17 @@
+@import "reset.scss";
+@import "base.scss";
+@font-face {
+  font-family: "happy", sans-serif;
+  src: url("../font/TFF/happy-times-NG_regular_master_web.ttf")
+    format("truetype");
+}
+
+body {
+  background-color: $bg;
+  font-family: "happy";
+}
+
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
