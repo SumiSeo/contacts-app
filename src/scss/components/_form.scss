@@ -1,0 +1,38 @@
+@import "../base/mixins";
+.form {
+  margin: 2rem;
+  &__header {
+    font-size: 1.6rem;
+  }
+}
+form {
+  position: relative;
+  input[type="submit"] {
+    @include primary__btn;
+    position: absolute;
+    right: 1rem;
+  }
+}
+.name__container,
+.email__container,
+.phone__container {
+  display: flex;
+  flex-direction: column;
+  width: 10rem;
+  margin: 1rem 0;
+}
+
+.name__container input,
+.email__container input,
+.phone__container input {
+  font-family: inherit;
+  padding: 1rem 2rem;
+  width: 15rem;
+  @include basic__border;
+  @include primary__font;
+  outline: none;
+  margin-top: 0.2rem;
+  &::placeholder {
+    @include placeholder__font;
+  }
+}

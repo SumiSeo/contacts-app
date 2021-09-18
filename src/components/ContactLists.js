@@ -1,10 +1,17 @@
 import React from "react";
-
-const ContactLists = () =>{
-
+import ContactInfo from "./ContactInfo";
 
 
-}
+const ContactLists = ({userContact}) =>{
+  return(
+    <div className="contact__container">
+      <ContactInfo userContact={userContact}/>
+     
+    </div>
+  )
+
+
+};
 
 
 export default ContactLists;

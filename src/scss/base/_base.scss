@@ -1,0 +1,26 @@
+// @font-face {
+//   font-family: "happy", sans-serif;
+//   src: url("../font/TFF/happy-times-NG_regular_master_web.ttf")
+//     format("truetype");
+// }
+
+html {
+  --text: #615551;
+  --container: #f9f5f3;
+  --list: #ffffff;
+  --form__container: #f9f5f3;
+  --primary: #f38e82;
+  --secondary: #fbdb89;
+  --ternary: #f48982;
+  --card__drop__shadow: rgba(#000, 10%);
+}
+
+.dark {
+  --text: #fff;
+  --container: #272727;
+  --list: #212121;
+  --primary: #f38e82;
+  --secondary: #fbdb89;
+  --ternary: #f48982;
+  --card__drop__shadow: rgba(#fff, 10%);
+}
