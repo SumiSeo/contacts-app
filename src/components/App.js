@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from "react";
+import React,{useState,useEffect,useReducer} from "react";
 import { BrowserRouter, Route } from "react-router-dom";
 
 import Main from "../scss/main.scss"
@@ -9,28 +9,29 @@ import ContactLists from "./ContactLists";
 
 
 const App = ( ) => {
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [name, setName] = useState("");
-  const [userContact, setUserContact] = useState({
-    userContactName: "",
-    userContactEmail: "",
-    userContactPhone: "",
-  }); 
+
+  const [userContact, setUserContact] = useState([{
+    name: "Sumi",
+    email: "qkobr94@gmail.com",
+    phone: "010 3447 0136",
+    id:1,
+  },
+  {
+    name: "Carla",
+    email: "carlabruni@gmail.com",
+    phone: "010 8374 2038",
+    id:2,
+  }]); 
   
  
   useEffect(()=>{
-    const contactsName = localStorage.getItem("userName") ?  localStorage.getItem("userName") : "";
-    const contactsEmail = localStorage.getItem("userEmail") ?  localStorage.getItem("userEmail") : "";
-    const contactsPhone = localStorage.getItem("userPhone") ?  localStorage.getItem("userPhone") : "";
-    setUserContact({
-      ...userContact,
-      "userContactName":contactsName,
-      "userContactEmail": contactsEmail,
-      "userContactPhone": contactsPhone,
-    });
-
-  },[]);
+      localStorage.setItem("contact", JSON.stringify({userContact}));
+      if(localStorage.getItem("contact")){
+        
+        console.log(JSON.parse(localStorage.getItem("contact")))
+      }
+      
+  },[userContact]);
   return(
     <div className="main">
       <BrowserRouter>
@@ -40,7 +41,7 @@ const App = ( ) => {
             <Route
               path="/" 
               exact 
-              render={() => <ContactLists userContact={userContact} />}
+              render={() => <ContactLists setUserContact={setUserContact} userContact={userContact} />}
               />
             <Route 
               path="/favorite" 
@@ -49,16 +50,11 @@ const App = ( ) => {
         
           <div className="main__column">
             <ContactForm
-              name={name}
-              setName={setName}
-              email={email}
-              setEmail={setEmail}
-              phone={phone}
-              setPhone={setPhone}
+              userContact={userContact}
+              setUserContact={setUserContact}
             />
           </div>
          
-          {/* <Header/> */}
          
         </div>
       </BrowserRouter>

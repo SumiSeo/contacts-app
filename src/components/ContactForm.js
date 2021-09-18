@@ -1,15 +1,22 @@
 import React,{useState} from "react";
+import {v1 as uuid} from "uuid";
 
-const ContactForm = ({email, setEmail, phone, setPhone, name, setName}) =>{
- 
+let nameInput;
+let emailInput;
+let phoneInput;
+
+const ContactForm = ({userContact,setUserContact}) =>{
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [name, setName] = useState("");
+  
   const onNameChange = () =>{
-    const nameInput = document.querySelector(".name__container input");
+    nameInput = document.querySelector(".name__container input");
     const nameLetter = nameInput.value.slice(0,1).toUpperCase()+nameInput.value.slice(1).toLowerCase();
     setName(nameLetter);
-    
   }
   const onEmailChange = () =>{
-    const emailInput = document.querySelector(".email__container input");
+    emailInput = document.querySelector(".email__container input");
     const REGEX_EMAIL = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if (REGEX_EMAIL.test(emailInput.value)) {
       setEmail(emailInput.value);
@@ -20,7 +27,7 @@ const ContactForm = ({email, setEmail, phone, setPhone, name, setName}) =>{
   }
 
   const onPhoneChange = () =>{
-    const phoneInput = document.querySelector(".phone__container input");
+    phoneInput = document.querySelector(".phone__container input");
     const REGEX_PHONE =/^[0-9]*$/;
     if (REGEX_PHONE.test(phoneInput.value)) {
       setPhone(phoneInput.value);
@@ -30,21 +37,29 @@ const ContactForm = ({email, setEmail, phone, setPhone, name, setName}) =>{
     }
   }
 
-  const onSubmitClick = (e) =>{
-    e.preventDefault();
-    //Check name and convert to delicate string
+  const onHandleSubmit = (e) =>{
     if(name, email){
-      localStorage.setItem("userName", name);
-      localStorage.setItem("userEmail", email);
-      localStorage.setItem("userPhone", phone);
+      e.preventDefault();
+      setUserContact([...userContact, {name,email,phone,id:uuid()}]);
+      nameInput.value="";
+      emailInput.value="";
+      phoneInput.value="";
+      setEmail("");
+      setName("");
+      setPhone("");
     }
+    
   }
+
+  
 
   return(
     <div>
       <div className="form">
         <h2 className="form__header">Add a new contact</h2>
-          <form action="#" method="post">
+          <form 
+          onSubmit ={onHandleSubmit}
+          action="#" method="post">
             <div className="name__container">
               <input 
                 required 
@@ -74,7 +89,7 @@ const ContactForm = ({email, setEmail, phone, setPhone, name, setName}) =>{
                 placeholder="phone"
               />
             </div>
-            <input onClick={onSubmitClick}type="submit" value="Add"/>
+            <input type="submit" value="Add"/>
           </form>
       </div>
     </div>
