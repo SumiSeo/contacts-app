@@ -1,39 +1,22 @@
-import React,{createContext,useState} from "react";
-import {v1 as uuid} from "uuid";
+import React,{createContext, useReducer,useEffect} from "react";
+import ContactReduer from "../reducers/ContactReducer";
+
 
 export const ContactsContext = createContext();
 
 const ContactsContextProvider = (props) => {
-  const [userContact, setUserContact] = useState([
-    {
-      name:"Jane",
-      email : "qkobr94@gmail.com",
-      phone : "04034324",
-      id:"1",
-    },
-    {
-      name:"Tom",
-      email : "tomholland94@gmail.com",
-      phone : "04034324",
-      id:"2",
-    },
-  ]); 
-
-  const addContact = (name, email, phone) =>{
-    setUserContact([...userContact, {name, email, phone, id:uuid() }]);
-  }
-
-  const removeContact = (id) =>{
-    setUserContact(userContact.filter(contact => contact.id !== id))
-  };
-
+  const [userContact, dispatch] = useReducer(ContactReduer, [], () => {
+    const localData = localStorage.getItem("contacts");
+    return localData ? JSON.parse(localData) : []
+  });
+  useEffect(()=>{
+    localStorage.setItem("contacts", JSON.stringify(userContact))
+  },[userContact])
   return (
-    <ContactsContext.Provider value={{userContact, setUserContact, addContact, removeContact}}>
+    <ContactsContext.Provider value={{userContact, dispatch}}>
       {props.children}
     </ContactsContext.Provider>
-
   )
-
 };
 
 export default ContactsContextProvider;

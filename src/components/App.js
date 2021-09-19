@@ -11,14 +11,15 @@ import ContactsContextProvider from "../contexts/ContactsContext";
 
 const App = ( ) => {
   
-  // useEffect(()=>{
-  //   //When user lands on the page display all the contacts in the local storage
-  //   if(localStorage.getItem("contact")){
-  //     const localData = JSON.parse(localStorage.getItem("contact"));
-  //     console.log(`useEffect: firstTime Redner ${localData}`)
-  //     setUserContact(localData);
-  //   }
-  // },[]);
+  useEffect(()=>{
+    //When user lands on the page display all the contacts in the local storage
+    // if(localStorage.getItem("contact")){
+    //   const localData = JSON.parse(localStorage.getItem("contact"));
+    //   console.log(`useEffect: firstTime Redner ${localData}`)
+    //   setUserContact(localData);
+    // }
+    
+  },[]);
 
   
   return(

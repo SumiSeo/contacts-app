@@ -6,7 +6,7 @@ let emailInput;
 let phoneInput;
 
 const ContactForm = () =>{
-  const {userContact, addContact} = useContext(ContactsContext);
+  const {dispatch} = useContext(ContactsContext);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
@@ -20,8 +20,12 @@ const ContactForm = () =>{
   const onEmailChange = () =>{
     emailInput = document.querySelector(".email__container input");
     const REGEX_EMAIL = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    if (REGEX_EMAIL.test(emailInput.value)) {
+    if ( REGEX_EMAIL.test(emailInput.value)) {
       setEmail(emailInput.value);
+      emailInput.style.border = "none";
+    }
+    else if(!emailInput.value){
+      emailInput.style.border = "none";
     }
     else{
       emailInput.style.border = "1px solid red";
@@ -33,6 +37,7 @@ const ContactForm = () =>{
     const REGEX_PHONE =/^[0-9]*$/;
     if (REGEX_PHONE.test(phoneInput.value)) {
       setPhone(phoneInput.value);
+      phoneInput.style.border = "none";
     }
     else{
       phoneInput.style.border = "1px solid red";
@@ -42,14 +47,15 @@ const ContactForm = () =>{
 
   const onHandleSubmit = (e) =>{
     e.preventDefault();
-    addContact(name,email,phone);
+    dispatch({type:"ADD_CONTACT", contact : {
+      name,email,phone
+    }});
     setEmail("");
     setName("");
     setPhone("");
     nameInput.value="";
     emailInput.value="";
     phoneInput.value="";
-    
   }
 
 
@@ -86,8 +92,7 @@ const ContactForm = () =>{
       </div>
     </div>
   )
-
-}
+};
 
 
 export default ContactForm;
