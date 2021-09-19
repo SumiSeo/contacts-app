@@ -1,4 +1,4 @@
-import React,{useState,useEffect,useReducer} from "react";
+import React,{useState,useEffect} from "react";
 import { BrowserRouter, Route } from "react-router-dom";
 
 import Main from "../scss/main.scss"
@@ -8,30 +8,34 @@ import ContactForm from "./ContactForm";
 import ContactLists from "./ContactLists";
 
 
-const App = ( ) => {
 
-  const [userContact, setUserContact] = useState([{
-    name: "Sumi",
-    email: "qkobr94@gmail.com",
-    phone: "010 3447 0136",
-    id:1,
-  },
-  {
-    name: "Carla",
-    email: "carlabruni@gmail.com",
-    phone: "010 8374 2038",
-    id:2,
-  }]); 
-  
- 
+const App = ( ) => {
+    // return localData ? JSON.parse(localData) : []
+  const [userContact, setUserContact] = useState([
+    {
+      name:"Jane",
+      email : "qkobr94@gmail.com",
+      phone : "04034324",
+      id:"1",
+    },
+    {
+      name:"Tom",
+      email : "tomholland94@gmail.com",
+      phone : "04034324",
+      id:"2",
+    },
+  ]); 
+
+
+
   useEffect(()=>{
-      localStorage.setItem("contact", JSON.stringify({userContact}));
-      if(localStorage.getItem("contact")){
-        
-        console.log(JSON.parse(localStorage.getItem("contact")))
-      }
-      
-  },[userContact]);
+    //When user lands on the page display all the contacts in the local storage
+    if(localStorage.getItem("contact")){
+      const localData = JSON.parse(localStorage.getItem("contact"));
+      console.log(`useEffect: firstTime Redner ${localData}`)
+      setUserContact(localData);
+    }
+  },[]);
   return(
     <div className="main">
       <BrowserRouter>

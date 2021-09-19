@@ -37,17 +37,24 @@ const ContactForm = ({userContact,setUserContact}) =>{
     }
   }
 
+
   const onHandleSubmit = (e) =>{
-    if(name, email){
-      e.preventDefault();
+    e.preventDefault();
+    if(name){
+      console.log(name, email);
       setUserContact([...userContact, {name,email,phone,id:uuid()}]);
-      nameInput.value="";
-      emailInput.value="";
-      phoneInput.value="";
-      setEmail("");
-      setName("");
-      setPhone("");
     }
+    if(userContact) {
+      // console.log(userContact)
+      localStorage.setItem("contact", JSON.stringify(userContact));
+      localStorage.setItem("text","hello");
+    }
+    nameInput.value="";
+    emailInput.value="";
+    phoneInput.value="";
+    // setEmail("");
+    // setName("");
+    // setPhone("");
     
   }
 
@@ -57,9 +64,7 @@ const ContactForm = ({userContact,setUserContact}) =>{
     <div>
       <div className="form">
         <h2 className="form__header">Add a new contact</h2>
-          <form 
-          onSubmit ={onHandleSubmit}
-          action="#" method="post">
+          <form onSubmit ={onHandleSubmit}>
             <div className="name__container">
               <input 
                 required 

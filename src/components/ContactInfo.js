@@ -5,8 +5,8 @@ import { faStar,faEdit,faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 const ContactInfo = ({contact,setUserContact,userContact}) =>{
   const removeContact = (id) => {
     setUserContact(userContact.filter(contact=>contact.id !== id));
-
   }
+  
   return (
     <li className="contact__column">
       <div className="contact__box">
