@@ -1,20 +1,22 @@
-import React,{useState} from "react";
-import {v1 as uuid} from "uuid";
+import React,{ useState, useContext } from "react";
+import { ContactsContext } from "../contexts/ContactsContext";
 
 let nameInput;
 let emailInput;
 let phoneInput;
 
-const ContactForm = ({userContact,setUserContact}) =>{
+const ContactForm = () =>{
+  const {userContact, addContact} = useContext(ContactsContext);
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
-  const [name, setName] = useState("");
   
   const onNameChange = () =>{
     nameInput = document.querySelector(".name__container input");
     const nameLetter = nameInput.value.slice(0,1).toUpperCase()+nameInput.value.slice(1).toLowerCase();
     setName(nameLetter);
   }
+
   const onEmailChange = () =>{
     emailInput = document.querySelector(".email__container input");
     const REGEX_EMAIL = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -40,25 +42,16 @@ const ContactForm = ({userContact,setUserContact}) =>{
 
   const onHandleSubmit = (e) =>{
     e.preventDefault();
-    if(name){
-      console.log(name, email);
-      setUserContact([...userContact, {name,email,phone,id:uuid()}]);
-    }
-    if(userContact) {
-      // console.log(userContact)
-      localStorage.setItem("contact", JSON.stringify(userContact));
-      localStorage.setItem("text","hello");
-    }
+    addContact(name,email,phone);
+    setEmail("");
+    setName("");
+    setPhone("");
     nameInput.value="";
     emailInput.value="";
     phoneInput.value="";
-    // setEmail("");
-    // setName("");
-    // setPhone("");
     
   }
 
-  
 
   return(
     <div>
@@ -68,8 +61,6 @@ const ContactForm = ({userContact,setUserContact}) =>{
             <div className="name__container">
               <input 
                 required 
-                id="contact__name" 
-                name="contact__name" 
                 type="text"
                 placeholder="name"
                 onChange={onNameChange}
@@ -78,8 +69,6 @@ const ContactForm = ({userContact,setUserContact}) =>{
             <div className="email__container">
               <input 
                 required 
-                id="contact__email" 
-                name="contact__email" 
                 type="email"
                 onChange = {onEmailChange} 
                 placeholder="email"
@@ -87,8 +76,6 @@ const ContactForm = ({userContact,setUserContact}) =>{
             </div>
             <div className="phone__container">
               <input 
-                id="contact__phone" 
-                name="contact__phone" 
                 type="text"
                 onChange={onPhoneChange}
                 placeholder="phone"
