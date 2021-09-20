@@ -1,13 +1,31 @@
-import React from "react";
+import React, { useContext } from "react";
+import ContactInfo from "./ContactInfo";
+import { ContactsContext } from "../contexts/ContactsContext";
 
 const FavoriteLists = () =>{
-
+  const {userContact, setUserContact} = useContext(ContactsContext);
+ 
   return (
-    <div>Favorite List
+    <div className="contact__container">
+      <ul>
+      {userContact.filter(contact=>contact.isFavorite===true).map((contact) => { 
+        return ( 
+        <ContactInfo 
+          userContact={userContact}
+          setUserContact={setUserContact} 
+          contact={contact} 
+          key={contact.id}
+        /> 
+          )})}
+      </ul>
     </div>
-  )
-
+  ) 
 }
 
 
 export default FavoriteLists;
+
+
+
+
+

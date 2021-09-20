@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext} from "react";
 import ContactInfo from "./ContactInfo";
 import { ContactsContext } from "../contexts/ContactsContext";
 

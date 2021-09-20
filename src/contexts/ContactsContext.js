@@ -10,7 +10,8 @@ const ContactsContextProvider = (props) => {
     return localData ? JSON.parse(localData) : []
   });
   useEffect(()=>{
-    localStorage.setItem("contacts", JSON.stringify(userContact))
+    localStorage.setItem("contacts", JSON.stringify(userContact));
+    console.log(userContact);
   },[userContact])
   return (
     <ContactsContext.Provider value={{userContact, dispatch}}>

@@ -6,6 +6,8 @@ import { faStar,faEdit,faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 
 const ContactInfo = ({contact}) =>{
   const { dispatch } = useContext(ContactsContext);
+ 
+
   return (
     <li className="contact__column">
       <div className="contact__box"><h4>{contact.name}</h4></div>
@@ -14,8 +16,12 @@ const ContactInfo = ({contact}) =>{
         <p>{contact.phone}</p>
       </div>
       <div className="contact__box">
-        <FontAwesomeIcon className="icon" icon={faEdit} />
-        <FontAwesomeIcon className="icon" icon={faStar} />
+        <FontAwesomeIcon 
+        className="icon" icon={faEdit} />
+        <FontAwesomeIcon 
+        onClick={()=> dispatch({type:"ADD_FAVORITE", id:contact.id})}
+        className="icon" 
+        icon={faStar} />
         <FontAwesomeIcon onClick={()=>dispatch({type:"REMOVE_CONTACT", id:contact.id})} className="icon" icon={faTrashAlt} />
        </div>
     </li>
@@ -23,3 +29,8 @@ const ContactInfo = ({contact}) =>{
 };
 
 export default ContactInfo;
+
+
+
+
+
