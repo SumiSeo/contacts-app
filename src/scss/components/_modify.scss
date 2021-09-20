@@ -1,0 +1,49 @@
+.hidden {
+  display: none;
+}
+
+.main__container {
+  position: relative;
+}
+.modify {
+  box-sizing: border-box;
+  position: absolute;
+  top: 10rem;
+  left: 17rem;
+  z-index: 10000;
+  width: 25rem;
+  height: 15rem;
+  padding: 2rem;
+  @include basic__container;
+  &__title {
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    @include primary__font;
+  }
+
+  &__btn {
+    @include primary__btn;
+    margin-left: 2rem;
+  }
+
+  &__name label,
+  &__email label,
+  &__phone label {
+    display: inline-block;
+    width: 5rem;
+  }
+  &__name input,
+  &__email input,
+  &__phone input {
+    @include basic__input;
+    width: 10rem;
+    padding: 0.5rem 1rem;
+    margin-left: 1rem;
+  }
+}

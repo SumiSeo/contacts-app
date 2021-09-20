@@ -25,13 +25,9 @@ form {
 .name__container input,
 .email__container input,
 .phone__container input {
-  font-family: inherit;
   padding: 1rem 2rem;
   width: 15rem;
-  @include basic__border;
-  @include primary__font;
-  outline: none;
-  margin-top: 0.2rem;
+  @include basic__input;
   &::placeholder {
     @include placeholder__font;
   }

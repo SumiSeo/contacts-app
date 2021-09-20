@@ -1,12 +1,22 @@
-import React,{ useState, useContext,useRef } from "react";
+import React,{useContext,useState,useRef} from "react";
+import { useEffect } from "react/cjs/react.development";
 import { ContactsContext } from "../contexts/ContactsContext";
 
 
-const ContactForm = () =>{
+const ContactModify = () =>{
+  const {dispatch,modify,setModify} = useContext(ContactsContext);
+  const ref = useRef();
   const emailRef= useRef();
   const nameRef= useRef();
   const phoneRef = useRef();
-  const {dispatch} = useContext(ContactsContext);
+
+  useEffect(()=>{
+    if(modify === true ){
+      ref.current.classList.remove("hidden");
+      console.log(ref.current);
+    }
+  },[modify])
+ 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
@@ -47,9 +57,8 @@ const ContactForm = () =>{
 
   const onHandleSubmit = (e) =>{
     e.preventDefault();
-    dispatch({type:"ADD_CONTACT", contact : {
-      name,email,phone
-    }});
+    ref.current.classList.add("hidden");
+    setModify(false);
     setEmail("");
     setName("");
     setPhone("");
@@ -58,44 +67,41 @@ const ContactForm = () =>{
     phoneRef.current.value="";
   }
 
-
-  return(
-    <div>
-      <div className="form">
-        <h2 className="form__header">Add a new contact</h2>
-          <form onSubmit ={onHandleSubmit}>
-            <div className="name__container">
-              <input 
-                required 
-                type="text"
-                placeholder="name"
-                onChange={onNameChange}
-                ref={nameRef}
-              />
+ 
+    return(
+      <div >
+        <div ref={ref} className="modify hidden">
+          <h2 className="modify__title">Edit your contact</h2>
+          <form 
+          onClick={onHandleSubmit}
+          className="modify__form">
+            <div className="modify__name">
+              <label >Name</label>
+              <input ref={nameRef} onChange={onNameChange} type="text"/>
             </div>
-            <div className="email__container">
-              <input 
-                required 
-                type="email"
-                onChange = {onEmailChange} 
-                placeholder="email"
-                ref={emailRef}
-              />
+            <div className="modify__email">
+              <label htmlFor="modify__email">Email</label>
+              <input onChange={onEmailChange} ref={emailRef} type="email"/>
             </div>
-            <div className="phone__container">
-              <input 
-                type="text"
-                onChange={onPhoneChange}
-                placeholder="phone"
-                ref= {phoneRef}
-              />
+            <div className="modify__phone">
+              <label htmlFor="modify__phone">Phone</label>
+              <input onChange={onPhoneChange} ref={phoneRef} type="text"/>
             </div>
-            <input type="submit" value="Add"/>
+            <div>
+              <input 
+              className="modify__btn" type="submit" value="Edit"/>
+            </div>
           </form>
+        </div>
       </div>
-    </div>
-  )
+    )
+
+
+
+
+
+
 };
 
 
-export default ContactForm;
+export default ContactModify;

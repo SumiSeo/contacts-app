@@ -1,3 +1,8 @@
+@mixin basic__container {
+  background-color: var(--container);
+  border-radius: 10px;
+}
+
 @mixin basic__border {
   border: 1px solid var(--input__border);
   border-radius: 12px;
@@ -27,4 +32,12 @@
   &:hover {
     transform: translateY(-4px);
   }
+}
+
+@mixin basic__input {
+  font-family: inherit;
+  @include basic__border;
+  @include primary__font;
+  outline: none;
+  margin-top: 0.2rem;
 }

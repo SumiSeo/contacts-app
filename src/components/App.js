@@ -1,27 +1,18 @@
-import React,{useEffect} from "react";
+import React from "react";
 import { BrowserRouter, Route } from "react-router-dom";
-
 import Main from "../scss/main.scss"
+
+import ContactsContextProvider from "../contexts/ContactsContext";
 import Header from "./Header";
-import FavoriteLists from "./FavoriteLists";
 import ContactForm from "./ContactForm";
 import ContactLists from "./ContactLists";
-import ContactsContextProvider from "../contexts/ContactsContext";
+import FavoriteLists from "./FavoriteLists";
+import ContactModify from "./ContactModify";
 
 
 const App = ( ) => {
-  
-  useEffect(()=>{
-    //When user lands on the page display all the contacts in the local storage
-    // if(localStorage.getItem("contact")){
-    //   const localData = JSON.parse(localStorage.getItem("contact"));
-    //   console.log(`useEffect: firstTime Redner ${localData}`)
-    //   setUserContact(localData);
-    // }
-    
-  },[]);
 
-  
+
   return(
     <div className="main">
       <BrowserRouter>
@@ -31,6 +22,7 @@ const App = ( ) => {
               <Header/>
               <Route path="/" exact component={ContactLists} />
               <Route path="/favorite" component={FavoriteLists}/>
+              <ContactModify />
             </div>
         
             <div className="main__column">

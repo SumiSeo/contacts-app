@@ -5,6 +5,7 @@
 @import "./components/header";
 @import "./components/form";
 @import "./components/contact";
+@import "./components/modify";
 
 body {
   background-image: linear-gradient(
@@ -29,7 +30,7 @@ body {
   width: 60rem;
   border-radius: 10px;
   overflow: hidden;
-  // border: 1px solid black;
+  @include basic__container;
 
   &__container {
     display: flex;
@@ -40,7 +41,6 @@ body {
     height: 35rem;
   }
   &__column:last-child {
-    background-color: var(--container);
     width: 40%;
     height: 35rem;
   }
