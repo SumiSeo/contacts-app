@@ -6,6 +6,7 @@ export const ContactsContext = createContext();
 
 const ContactsContextProvider = (props) => {
   const [modify, setModify] = useState(false);
+  const [id,setId] = useState("");
   const [userContact, dispatch] = useReducer(ContactReduer, [], () => {
     const localData = localStorage.getItem("contacts");
     return localData ? JSON.parse(localData) : []
@@ -18,7 +19,7 @@ const ContactsContextProvider = (props) => {
     console.log(userContact);
   },[userContact])
   return (
-    <ContactsContext.Provider value={{userContact, dispatch,modify,setModify}}>
+    <ContactsContext.Provider value={{userContact, dispatch, modify, setModify, id,setId}}>
       {props.children}
     </ContactsContext.Provider>
   )

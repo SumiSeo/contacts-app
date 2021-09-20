@@ -4,7 +4,7 @@ import { ContactsContext } from "../contexts/ContactsContext";
 
 
 const ContactModify = () =>{
-  const {dispatch,modify,setModify} = useContext(ContactsContext);
+  const {dispatch,modify,setModify,id} = useContext(ContactsContext);
   const ref = useRef();
   const emailRef= useRef();
   const nameRef= useRef();
@@ -13,7 +13,6 @@ const ContactModify = () =>{
   useEffect(()=>{
     if(modify === true ){
       ref.current.classList.remove("hidden");
-      console.log(ref.current);
     }
   },[modify])
  
@@ -55,9 +54,13 @@ const ContactModify = () =>{
   }
 
 
-  const onHandleSubmit = (e) =>{
+  const onHandleSubmit = (e) => {
     e.preventDefault();
     ref.current.classList.add("hidden");
+    console.log(id);
+    dispatch({type:"MODIFY_CONTACT", contact : {
+      name,email,phone,id
+    }});
     setModify(false);
     setEmail("");
     setName("");
@@ -73,7 +76,7 @@ const ContactModify = () =>{
         <div ref={ref} className="modify hidden">
           <h2 className="modify__title">Edit your contact</h2>
           <form 
-          onClick={onHandleSubmit}
+          onSubmit={onHandleSubmit}
           className="modify__form">
             <div className="modify__name">
               <label >Name</label>

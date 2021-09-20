@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar,faEdit,faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 
 const ContactInfo = ({contact}) =>{
-  const { dispatch, modify, setModify } = useContext(ContactsContext);
+  const { dispatch, modify, setModify, setId } = useContext(ContactsContext);
   console.log(modify);
   return (
     <li className="contact__column">
@@ -17,7 +17,7 @@ const ContactInfo = ({contact}) =>{
       <div className="contact__box">
         <FontAwesomeIcon 
         className="icon" icon={faEdit}
-        onClick={()=>setModify(true)} />
+        onClick={()=>{setModify(true); setId(contact.id); }} />
         <FontAwesomeIcon 
         onClick={()=> dispatch({type:"ADD_FAVORITE", id:contact.id})}
         className="icon" 
