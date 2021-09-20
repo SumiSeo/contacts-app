@@ -25,11 +25,14 @@
     flex-direction: column;
     justify-content: center;
     @include primary__font;
+    position: relative;
   }
 
   &__btn {
     @include primary__btn;
-    margin-left: 2rem;
+    position: absolute;
+    right: -1rem;
+    bottom: -2.4rem;
   }
 
   &__name label,
@@ -42,7 +45,7 @@
   &__email input,
   &__phone input {
     @include basic__input;
-    width: 10rem;
+    width: 11rem;
     padding: 0.5rem 1rem;
     margin-left: 1rem;
   }

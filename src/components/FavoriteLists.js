@@ -6,7 +6,7 @@ const FavoriteLists = () =>{
   const {userContact, setUserContact} = useContext(ContactsContext);
  
   return (
-    <div className="contact__container">
+    <div className="contact__container favorite">
       <ul>
       {userContact.filter(contact=>contact.isFavorite===true).map((contact) => { 
         return ( 

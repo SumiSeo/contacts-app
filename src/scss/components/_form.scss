@@ -4,14 +4,14 @@
   &__header {
     font-size: 1.6rem;
   }
-}
-form {
-  position: relative;
-  input[type="submit"] {
+  &__add {
     @include primary__btn;
     position: absolute;
     right: 1rem;
   }
+}
+form {
+  position: relative;
 }
 .name__container,
 .email__container,
