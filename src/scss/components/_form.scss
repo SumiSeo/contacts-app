@@ -21,6 +21,7 @@ form {
   flex-direction: column;
   width: 10rem;
   margin: 1rem 0;
+  position: relative;
 }
 
 .name__container input,
@@ -29,11 +30,8 @@ form {
   padding: 1rem 2rem;
   width: 15rem;
   @include basic__input;
+
   &::placeholder {
     @include placeholder__font;
   }
-}
-
-.border__red {
-  border: 1px solid red;
 }

@@ -69,27 +69,30 @@ const ContactForm = () =>{
             <input 
               required 
               type="text"
-              placeholder="name"
+              placeholder="Name"
               onChange={onNameChange}
               ref={nameRef}
             />
+            
           </div>
           <div className="email__container">
             <input 
               required 
               type="email"
-              placeholder="email"
+              placeholder="Email"
               onChange = {onEmailChange} 
               ref={emailRef}
             />
+           
           </div>
           <div className="phone__container">
             <input 
               type="number"
-              placeholder="phone"
+              placeholder="Phone (only number)"
               onChange={onPhoneChange}
               ref={phoneRef}
             />
+  
           </div>
           <input className="form__add"type="submit" value="Add"/>
         </form>
