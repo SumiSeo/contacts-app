@@ -11,9 +11,27 @@ const ContactModify = () =>{
   const phoneRef = useRef();
 
   useEffect(()=>{
+    const onBodyClick = (event) => {
+      if (ref.current.contains(event.target)) {
+        return;
+      }
+      setModify(false);
+    };
+    
+    document.body.addEventListener("click", onBodyClick, {capture: true})
+    document.body.addEventListener("keydown", (e)=>{
+      if(e.key ==="Escape"){
+        setModify(false);
+      }
+    })
+
     if(modify === true ){
       ref.current.classList.remove("hidden");
     }
+    else{
+      ref.current.classList.add("hidden");
+    }
+
   },[modify])
  
   const [name, setName] = useState("");
@@ -56,25 +74,35 @@ const ContactModify = () =>{
 
   const onHandleSubmit = (e) => {
     e.preventDefault();
-    ref.current.classList.add("hidden");
-    console.log(id);
-    dispatch({type:"MODIFY_CONTACT", contact : {
-      name,email,phone,id
-    }});
-    setModify(false);
-    setEmail("");
-    setName("");
-    setPhone("");
-    nameRef.current.value="";
-    emailRef.current.value="";
-    phoneRef.current.value="";
+    if(name && email ){
+      ref.current.classList.add("hidden");
+      console.log(id);
+      dispatch({type:"MODIFY_CONTACT", contact : {
+        name,email,phone,id
+      }});
+      setModify(false);
+      setEmail("");
+      setName("");
+      setPhone("");
+      nameRef.current.value="";
+      emailRef.current.value="";
+      phoneRef.current.value="";
+    }
   }
 
  
     return(
       <div >
         <div ref={ref} className="modify hidden">
-          <h2 className="modify__title">Edit your contact</h2>
+          <div className="modify__nav"> 
+            <h2 className="modify__title">Edit your contact</h2>
+            <span 
+            onClick={()=>{
+             setModify(false);
+            }}
+            className="modify__close">&#10005;</span>
+          </div>
+          
           <form 
           onSubmit={onHandleSubmit}
           className="modify__form">

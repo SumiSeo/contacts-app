@@ -10,9 +10,7 @@ const ContactsContextProvider = (props) => {
   const [userContact, dispatch] = useReducer(ContactReduer, [], () => {
     const localData = localStorage.getItem("contacts");
     return localData ? JSON.parse(localData) : []
-  });
-
-  
+  });  
 
   useEffect(()=>{
     localStorage.setItem("contacts", JSON.stringify(userContact));
