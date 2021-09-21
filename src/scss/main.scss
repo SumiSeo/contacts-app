@@ -2,50 +2,10 @@
 @import "./base/reset";
 @import "./base/mixins";
 
-@import "./components/header";
+@import "./pages/header";
+
+@import "./layout/contactContainer";
+
 @import "./components/form";
-@import "./components/contact";
-@import "./components/modify";
-
-body {
-  background-image: linear-gradient(
-    to right bottom,
-    var(--secondary),
-    var(--ternary)
-  );
-  height: 100vh;
-  color: var(--text);
-  font-family: "Work Sans", sans-serif;
-  font-size: 62.5%;
-  box-sizing: border-box;
-}
-
-#root {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 4rem 6rem;
-}
-.main {
-  width: 60rem;
-  border-radius: 10px;
-  overflow: hidden;
-  @include basic__container;
-
-  &__container {
-    display: flex;
-  }
-  &__column:first-child {
-    background-color: var(--list);
-    width: 60%;
-    height: 35rem;
-  }
-  &__column:last-child {
-    width: 40%;
-    height: 35rem;
-  }
-}
-
-.favorite {
-  color: var(--primary);
-}
+@import "./components/modifyForm";
+@import "./components/contactLists";

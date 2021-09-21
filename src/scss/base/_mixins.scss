@@ -8,6 +8,14 @@
   border-radius: 12px;
 }
 
+@mixin basic__input {
+  font-family: inherit;
+  @include basic__border;
+  @include primary__font;
+  outline: none;
+  margin-top: 0.2rem;
+}
+
 @mixin placeholder__font {
   font-family: "Work Sans", sans-serif;
   font-size: 1.1rem;
@@ -16,6 +24,11 @@
 @mixin primary__font {
   font-family: "Work Sans", sans-serif;
   font-size: 1rem;
+  color: var(--text);
+}
+
+@mixin heading__font {
+  font-size: 1.4rem;
   color: var(--text);
 }
 
@@ -31,12 +44,4 @@
   &:hover {
     transform: translateY(-4px);
   }
-}
-
-@mixin basic__input {
-  font-family: inherit;
-  @include basic__border;
-  @include primary__font;
-  outline: none;
-  margin-top: 0.2rem;
 }

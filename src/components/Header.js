@@ -7,12 +7,12 @@ const Header = () =>{
     <div className="nav">
       <ul className="nav__lists">
         <li className="nav__list">
-          <Link className="link" to="/">
+          <Link className="nav__link" to="/">
             <FontAwesomeIcon icon={faUsers} />
           </Link>
         </li>
         <li className="nav__list">
-          <Link className="link" to="/favorite"> 
+          <Link className="nav__link" to="/favorite"> 
             <FontAwesomeIcon icon={faStar} />
           </Link>
         </li>

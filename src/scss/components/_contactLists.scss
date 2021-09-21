@@ -1,0 +1,46 @@
+@import "../base/base";
+
+.contact {
+  &__container {
+    display: flex;
+    flex-direction: column;
+  }
+  &__column {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+      background-color: var(--container);
+    }
+  }
+  &__box {
+    h4 {
+      @include heading__font;
+      width: 6rem;
+      color: var(--primary);
+    }
+    p {
+      font-size: 1rem;
+      width: 15rem;
+      &:not(:last-child) {
+        margin-bottom: 0.4rem;
+      }
+    }
+  }
+  &__icon {
+    font-size: 1.2rem;
+    margin-left: 0.5rem;
+    cursor: pointer;
+    &:hover {
+      color: var(--primary);
+    }
+  }
+}
+
+.add__contact {
+  padding: 2rem;
+  font-size: 1.4rem;
+  font-weight: 500;
+}

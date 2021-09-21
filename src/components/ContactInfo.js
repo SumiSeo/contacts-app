@@ -16,13 +16,13 @@ const ContactInfo = ({contact}) =>{
       </div>
       <div className="contact__box">
         <FontAwesomeIcon 
-        className="icon" icon={faEdit}
+        className="contact__icon" icon={faEdit}
         onClick={()=>{setModify(true); setId(contact.id); }} />
         <FontAwesomeIcon 
         onClick={()=> dispatch({type:"ADD_FAVORITE", id:contact.id})}
-        className="icon" 
+        className="contact__icon" 
         icon={faStar} />
-        <FontAwesomeIcon onClick={()=>dispatch({type:"REMOVE_CONTACT", id:contact.id})} className="icon" icon={faTrashAlt} />
+        <FontAwesomeIcon onClick={()=>dispatch({type:"REMOVE_CONTACT", id:contact.id})} className="contact__icon" icon={faTrashAlt} />
        </div>
     </li>
   )

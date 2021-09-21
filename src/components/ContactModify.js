@@ -1,5 +1,4 @@
-import React,{useContext,useState,useRef} from "react";
-import { useEffect } from "react/cjs/react.development";
+import React,{useContext,useState,useRef,useEffect} from "react";
 import { ContactsContext } from "../contexts/ContactsContext";
 
 
@@ -17,7 +16,7 @@ const ContactModify = () =>{
       }
       setModify(false);
     };
-    
+
     document.body.addEventListener("click", onBodyClick, {capture: true})
     document.body.addEventListener("keydown", (e)=>{
       if(e.key ==="Escape"){

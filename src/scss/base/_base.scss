@@ -1,10 +1,7 @@
-// @font-face {
-//   font-family: "happy", sans-serif;
-//   src: url("../font/TFF/happy-times-NG_regular_master_web.ttf")
-//     format("truetype");
-// }
 @import url("https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,200;0,300;0,400;0,500;1,200;1,300;1,400;1,500&display=swap");
+
 html {
+  box-sizing: border-box;
   --text: #615551;
   --container: #f9f5f3;
   --list: #ffffff;
@@ -23,4 +20,23 @@ html {
   --secondary: #fbdb89;
   --ternary: #f48982;
   --card__drop__shadow: rgba(#fff, 10%);
+}
+
+body {
+  background-image: linear-gradient(
+    to right bottom,
+    var(--secondary),
+    var(--ternary)
+  );
+  height: 100vh;
+  font-family: "Work Sans", sans-serif;
+  font-size: 62.5%;
+  color: var(--text);
+}
+
+#root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 4rem 6rem;
 }

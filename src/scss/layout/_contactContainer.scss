@@ -1,0 +1,22 @@
+.main {
+  width: 60rem;
+  border-radius: 10px;
+  overflow: hidden;
+  @include basic__container;
+  &__container {
+    display: flex;
+  }
+  &__column:first-child {
+    background-color: var(--list);
+    width: 60%;
+    height: 35rem;
+  }
+  &__column:last-child {
+    width: 40%;
+    height: 35rem;
+  }
+}
+
+.favorite {
+  color: var(--primary);
+}
