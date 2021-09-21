@@ -1,9 +1,11 @@
-import React,{useContext,useState,useRef,useEffect} from "react";
+import React,{ useContext, useState, useRef, useEffect } from "react";
 import { ContactsContext } from "../contexts/ContactsContext";
 
-
 const ContactModify = () =>{
-  const {dispatch,modify,setModify,id} = useContext(ContactsContext);
+  const {dispatch, modify, setModify, id} = useContext(ContactsContext);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
   const ref = useRef();
   const emailRef= useRef();
   const nameRef= useRef();
@@ -16,7 +18,7 @@ const ContactModify = () =>{
       }
       setModify(false);
     };
-
+    
     document.body.addEventListener("click", onBodyClick, {capture: true})
     document.body.addEventListener("keydown", (e)=>{
       if(e.key ==="Escape"){
@@ -24,18 +26,14 @@ const ContactModify = () =>{
       }
     })
 
-    if(modify === true ){
+    if(modify === true){
       ref.current.classList.remove("hidden");
     }
     else{
       ref.current.classList.add("hidden");
     }
-
   },[modify])
  
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
   
   const onNameChange = () =>{
     const nameLetter = nameRef.current.value.slice(0,1).toUpperCase()+nameRef.current.value.slice(1).toLowerCase();
@@ -89,24 +87,17 @@ const ContactModify = () =>{
     }
   }
 
- 
     return(
       <div >
         <div ref={ref} className="modify hidden">
           <div className="modify__nav"> 
             <h2 className="modify__title">Edit your contact</h2>
-            <span 
-            onClick={()=>{
-             setModify(false);
-            }}
+            <span onClick={()=>{setModify(false);}}
             className="modify__close">&#10005;</span>
           </div>
-          
-          <form 
-          onSubmit={onHandleSubmit}
-          className="modify__form">
+          <form onSubmit={onHandleSubmit} className="modify__form">
             <div className="modify__name">
-              <label >Name</label>
+              <label>Name</label>
               <input ref={nameRef} onChange={onNameChange} type="text"/>
             </div>
             <div className="modify__email">
@@ -115,23 +106,15 @@ const ContactModify = () =>{
             </div>
             <div className="modify__phone">
               <label htmlFor="modify__phone">Phone</label>
-              <input onChange={onPhoneChange} ref={phoneRef} type="text"/>
+              <input onChange={onPhoneChange} ref={phoneRef} type="number"/>
             </div>
             <div>
-              <input 
-              className="modify__btn" type="submit" value="Edit"/>
+              <input className="modify__btn" type="submit" value="Edit"/>
             </div>
           </form>
         </div>
       </div>
     )
-
-
-
-
-
-
 };
-
 
 export default ContactModify;

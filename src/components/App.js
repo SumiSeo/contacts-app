@@ -3,6 +3,7 @@ import { BrowserRouter, Route } from "react-router-dom";
 import Main from "../scss/main.scss"
 
 import ContactsContextProvider from "../contexts/ContactsContext";
+
 import Header from "./Header";
 import ContactForm from "./ContactForm";
 import ContactLists from "./ContactLists";
@@ -10,9 +11,8 @@ import FavoriteLists from "./FavoriteLists";
 import ContactModify from "./ContactModify";
 
 
-const App = ( ) => {
-
-
+const App = () => {
+  
   return(
     <div className="main">
       <BrowserRouter>
@@ -24,7 +24,6 @@ const App = ( ) => {
               <Route path="/favorite" component={FavoriteLists}/>
               <ContactModify />
             </div>
-        
             <div className="main__column">
               <ContactForm/>
             </div>

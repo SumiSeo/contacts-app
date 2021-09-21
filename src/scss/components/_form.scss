@@ -33,3 +33,7 @@ form {
     @include placeholder__font;
   }
 }
+
+.border__red {
+  border: 1px solid red;
+}

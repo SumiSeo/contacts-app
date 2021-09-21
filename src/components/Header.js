@@ -1,7 +1,9 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar,faUsers } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "react-router-dom";
+
 const Header = () =>{
   return (
     <div className="nav">
@@ -17,7 +19,6 @@ const Header = () =>{
           </Link>
         </li>
       </ul>
-     
     </div>
   )
 

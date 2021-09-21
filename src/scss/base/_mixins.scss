@@ -41,6 +41,7 @@
   transition: all 0.4s ease-in-out;
   background-color: $primary;
   color: white;
+
   &:hover {
     transform: translateY(-4px);
   }

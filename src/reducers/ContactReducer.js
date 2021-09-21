@@ -11,22 +11,21 @@ const ContactReduer = (state, action) =>{
         isFavorite: false,
       }]
     case "MODIFY_CONTACT" :
-      state.filter(contact => contact.id == action.contact.id)
+      state.filter(contact => contact.id === action.contact.id)
       .map(contact => {return (
         contact.name =  action.contact.name,
         contact.email =  action.contact.email,
         contact.phone =  action.contact.phone,
         contact.id = action.contact.id,
-        contact.isFavorite =  contact.isFavorite)}) ;
-      return [...state]
+        contact.isFavorite = contact.isFavorite)}) ;
+      return [...state];
     case "REMOVE_CONTACT" : 
       return state.filter(contact => contact.id !== action.id);
     case "ADD_FAVORITE" :
       state.filter(contact => contact.id == action.id).map(contact=>contact.isFavorite=!contact.isFavorite)
-      return [...state]
-      
+      return [...state];
     default :
-      return state
+      return state;
   }
 }
 
