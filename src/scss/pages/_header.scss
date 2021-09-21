@@ -1,7 +1,7 @@
 .nav {
   &__lists {
     display: flex;
-    background-color: var(--container);
+    background-color: $container;
     height: 3rem;
     display: flex;
     justify-content: space-between;
@@ -11,9 +11,9 @@
   &__link {
     font-size: 1.4rem;
     transition: all 0.2s ease-in-out;
-    color: var(--secondary);
+    color: $secondary;
     &:hover {
-      color: var(--primary);
+      color: $primary;
     }
   }
 }

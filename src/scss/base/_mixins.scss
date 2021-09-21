@@ -1,10 +1,10 @@
 @mixin basic__container {
-  background-color: var(--container);
+  background-color: $container;
   border-radius: 10px;
 }
 
 @mixin basic__border {
-  border: 1px solid var(--input__border);
+  border: none;
   border-radius: 12px;
 }
 
@@ -24,12 +24,12 @@
 @mixin primary__font {
   font-family: "Work Sans", sans-serif;
   font-size: 1rem;
-  color: var(--text);
+  color: $text;
 }
 
 @mixin heading__font {
   font-size: 1.4rem;
-  color: var(--text);
+  color: $text;
 }
 
 @mixin primary__btn {
@@ -39,7 +39,7 @@
   padding: 0.5rem 1rem;
   cursor: pointer;
   transition: all 0.4s ease-in-out;
-  background-color: var(--primary);
+  background-color: $primary;
   color: white;
   &:hover {
     transform: translateY(-4px);

@@ -12,14 +12,13 @@
     padding: 1rem 2rem;
     transition: all 0.3s ease-in-out;
     &:hover {
-      background-color: var(--container);
+      background-color: $container;
     }
   }
   &__box {
     h4 {
-      @include heading__font;
+      font-size: 1.4rem;
       width: 6rem;
-      color: var(--primary);
     }
     p {
       font-size: 1rem;
@@ -34,7 +33,7 @@
     margin-left: 0.5rem;
     cursor: pointer;
     &:hover {
-      color: var(--primary);
+      color: $primary;
     }
   }
 }

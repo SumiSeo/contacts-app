@@ -7,16 +7,13 @@
     display: flex;
   }
   &__column:first-child {
-    background-color: var(--list);
+    background-color: $list;
     width: 60%;
     height: 35rem;
-  }
-  &__column:last-child {
-    width: 40%;
-    height: 35rem;
+    overflow: scroll;
   }
 }
 
 .favorite {
-  color: var(--primary);
+  color: $primary;
 }

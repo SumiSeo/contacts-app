@@ -90,7 +90,7 @@ const ContactForm = () =>{
                 ref= {phoneRef}
               />
             </div>
-            <input  className="form__add"type="submit" value="Add"/>
+            <input className="form__add"type="submit" value="Add"/>
           </form>
       </div>
     </div>
