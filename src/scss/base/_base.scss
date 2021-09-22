@@ -17,11 +17,6 @@ body {
   font-family: "Work Sans", sans-serif;
   color: $text;
   font-size: 62.5%;
-  input[type="number"]::-webkit-outer-spin-button,
-  input[type="number"]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-  }
 }
 
 #root {

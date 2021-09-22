@@ -106,7 +106,7 @@ const ContactModify = () =>{
             </div>
             <div className="modify__phone">
               <label htmlFor="modify__phone">Phone</label>
-              <input onChange={onPhoneChange} ref={phoneRef} type="number"/>
+              <input onChange={onPhoneChange} ref={phoneRef} type="text"/>
             </div>
             <div>
               <input className="modify__btn" type="submit" value="Edit"/>

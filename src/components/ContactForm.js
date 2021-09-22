@@ -87,7 +87,7 @@ const ContactForm = () =>{
           </div>
           <div className="phone__container">
             <input 
-              type="number"
+              type="text"
               placeholder="Phone (only number)"
               onChange={onPhoneChange}
               ref={phoneRef}
