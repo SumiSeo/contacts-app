@@ -5,7 +5,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar,faEdit,faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 
 const ContactInfo = ({contact}) =>{
-  const { dispatch, modify, setModify, setId } = useContext(ContactsContext);
+  const { dispatch, setModify, setId } = useContext(ContactsContext);
+
   return (
     <li className="contact__column">
       <div className="contact__box"><h4>{contact.name}</h4></div>

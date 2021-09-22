@@ -1,11 +1,10 @@
 .nav {
   &__lists {
     display: flex;
-    background-color: $container;
-    height: 3rem;
-    display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: $container;
+    height: 3rem;
     padding: 0.5rem 2rem;
   }
   &__link {

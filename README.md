@@ -6,9 +6,9 @@
 
 1. User can add a new contact(name, email are required but phone is optional).
 2. The form checks if user input fields are valid.
-3. User can **add** a contact to favorite lists and also remove the contact from favorite lists by toggling "star" button.
+3. User can **add** a contact to favorite list and also remove the contact from favorite list by toggling "star" button.
 4. User can **edi**t a contact(name, email and phone).
-5. User can **remove** a contact from lists.
+5. User can **remove** a contact from list.
 6. All of user experiences are stored in **localstroage** which can keep track of user action in this application.
 7. Contact list and Favorite list are built with **React Router**.
 
@@ -20,7 +20,7 @@
 
 ![main view](./img/contact-add.gif)
 
-### Whenever user puts valid input, the new contact will be added on the _contact lists_.
+### Whenever user puts valid input, the new contact will be added on the _contact list_.
 
 - Name input will be organized (First letter:uppercase, the rests: lowercase.)
 
@@ -32,7 +32,7 @@
 
 ---
 
-## ⭐️ Add a contact fo Favorite lists
+## ⭐️ Add a contact fo Favorite list
 
 ![main view](./img/contact-favorite.gif)
 
@@ -78,7 +78,7 @@
 
 ![main view](./img/contact-localstorage.gif)
 
-### All user experiences(add, edit, add to favorite lists and remove contact) are saved in localstorage.
+### All user experiences(add, edit, add to favorite list and remove contact) are saved in localstorage.
 
 - When user revisits the site, localstorage can keep track of prvious user actions.
 
@@ -90,4 +90,4 @@
 
 ![main view](./img/contact-favorite.gif)
 
-### Contact application is **single page web application**.
+### Contact application is a **single page web application**.

@@ -16,11 +16,11 @@ const ContactForm = () =>{
   }
   const onEmailChange = () =>{
     const REGEX_EMAIL = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    if ( REGEX_EMAIL.test(emailRef.current.value)) {
+    if (REGEX_EMAIL.test(emailRef.current.value)) {
       setEmail(emailRef.current.value);
       emailRef.current.style.border = "none";
     }
-    else if(!emailRef.current.value){
+    else if (!emailRef.current.value){
       emailRef.current.style.border = "none";
     }
     else{
@@ -34,7 +34,7 @@ const ContactForm = () =>{
       setPhone(phoneRef.current.value);
       phoneRef.current.style.border = "none";
     }
-    else if(!phoneRef.current.value){
+    else if (!phoneRef.current.value){
       phoneRef.current.style.border = "none";
     }
     else{
@@ -59,7 +59,6 @@ const ContactForm = () =>{
    
   }
 
-
   return(
     <div>
       <div className="form">
@@ -73,7 +72,6 @@ const ContactForm = () =>{
               onChange={onNameChange}
               ref={nameRef}
             />
-            
           </div>
           <div className="email__container">
             <input 
@@ -83,7 +81,6 @@ const ContactForm = () =>{
               onChange = {onEmailChange} 
               ref={emailRef}
             />
-           
           </div>
           <div className="phone__container">
             <input 
@@ -92,7 +89,6 @@ const ContactForm = () =>{
               onChange={onPhoneChange}
               ref={phoneRef}
             />
-  
           </div>
           <input className="form__add"type="submit" value="Add"/>
         </form>
@@ -100,6 +96,5 @@ const ContactForm = () =>{
     </div>
   )
 };
-
 
 export default ContactForm;

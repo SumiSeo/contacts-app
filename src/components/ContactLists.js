@@ -23,9 +23,6 @@ const ContactLists = () =>{
   ) : (
     <div className="contact__container add__contact">Add a new contact 😁</div>
   );
-
-
 };
-
 
 export default ContactLists;

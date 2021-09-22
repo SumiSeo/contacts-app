@@ -11,10 +11,12 @@
   left: 17rem;
   padding: 2rem;
   @include basic__container;
+
   &__nav {
     display: flex;
     justify-content: space-between;
   }
+
   &__close {
     display: flex;
     justify-content: center;
@@ -24,6 +26,7 @@
     position: relative;
     top: -1rem;
   }
+
   &__title {
     @include heading__font;
     margin-bottom: 1.5rem;
@@ -50,6 +53,7 @@
     display: inline-block;
     width: 5rem;
   }
+
   &__name input,
   &__email input,
   &__phone input {

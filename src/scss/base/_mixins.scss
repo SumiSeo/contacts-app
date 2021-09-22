@@ -9,7 +9,6 @@
 }
 
 @mixin basic__input {
-  font-family: inherit;
   @include basic__border;
   @include primary__font;
   outline: none;
@@ -17,12 +16,12 @@
 }
 
 @mixin placeholder__font {
-  font-family: "Work Sans", sans-serif;
+  font-family: inherit;
   font-size: 1.1rem;
 }
 
 @mixin primary__font {
-  font-family: "Work Sans", sans-serif;
+  font-family: inherit;
   font-size: 1rem;
   color: $text;
 }
@@ -41,7 +40,6 @@
   transition: all 0.4s ease-in-out;
   background-color: $primary;
   color: white;
-
   &:hover {
     transform: translateY(-4px);
   }

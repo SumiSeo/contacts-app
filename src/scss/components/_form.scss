@@ -2,18 +2,22 @@
 
 .form {
   margin: 2rem;
+
   &__header {
     font-size: 1.6rem;
   }
+
   &__add {
     @include primary__btn;
     position: absolute;
     right: -4rem;
   }
 }
+
 form {
   position: relative;
 }
+
 .name__container,
 .email__container,
 .phone__container {
@@ -30,7 +34,6 @@ form {
   padding: 1rem 2rem;
   width: 15rem;
   @include basic__input;
-
   &::placeholder {
     @include placeholder__font;
   }
