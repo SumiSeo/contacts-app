@@ -1,70 +1,93 @@
-# Getting Started with Create React App
+# 📒 Contacts application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![main screen](./img/contact.png)
 
-## Available Scripts
+## 📝 About Details
 
-In the project directory, you can run:
+1. User can add a new contact(name, email are required but phone is optional).
+2. The form checks if user input fields are valid.
+3. User can **add** a contact to favorite lists and also remove the contact from favorite lists by toggling "star" button.
+4. User can **edi**t a contact(name, email and phone).
+5. User can **remove** a contact from lists.
+6. All of user experiences are stored in **localstroage** which can keep track of user action in this application.
+7. Contact list and Favorite list are built with **React Router**.
 
-### `npm start`
+<br />
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+---
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## ⭐️ Add a new contact
 
-### `npm test`
+![main view](./img/contact-add.gif)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Whenever user puts valid input, the new contact will be added on the _contact lists_.
 
-### `npm run build`
+- Name input will be organized (First letter:uppercase, the rests: lowercase.)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Email input field will be filtered by **REGEX**. When it is not valid, the input border changes in red line.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Phone field is optional. When user does not put "number", the border changes in red line.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+  <br/>
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## ⭐️ Add a contact fo Favorite lists
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![main view](./img/contact-favorite.gif)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### When user clicks the _Star button_, user can add the contact to Favorite list, and remove from the favorite list by simply toggling button.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- By clicking button, the contact will be on the favorite list.
 
-## Learn More
+- On the favorite list, user can put it back to Contact list.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+  <br/>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+## ⭐️ Edit a contact
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+![main view](./img/contact-edit.gif)
 
-### Analyzing the Bundle Size
+### When user clicks the _Edit button_, user can edit name, email and phone fields.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- When user edits the contact information, same input validation will be triggered.
 
-### Making a Progressive Web App
+- User can close the edit container with three ways: by clicking **X** button, by pressing **Esacape** key and also by clicking **body** (outside of edit container).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+  <br/>
 
-### Advanced Configuration
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## ⭐️ Remove a contact
 
-### Deployment
+![main view](./img/contact-remove.gif)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### User can delete the contact information.
 
-### `npm run build` fails to minify
+- User can delete contact information by clicking the **remove button**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- When user clicks the button, the contact information is also deleted from local storage.
+
+  <br/>
+
+---
+
+## ⭐️ User experiences are saved in localstorage
+
+![main view](./img/contact-localstorage.gif)
+
+### All user experiences(add, edit, add to favorite lists and remove contact) are saved in localstorage.
+
+- When user revisits the site, localstorage can keep track of prvious user actions.
+
+  <br/>
+
+---
+
+## ⭐️ React router: contact list/favorite list
+
+![main view](./img/contact-favorite.gif)
+
+### Contact application is **single page web application**.
